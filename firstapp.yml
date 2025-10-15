@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: first-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: first-app
+  template:
+    metadata:
+      labels:
+        run: first-app
+    spec:
+      containers:
+      - name: first-app
+        image: shaaksacr.azurecr.io/first-app:v2
+        ports:
+            - name: http
+              containerPort: 80
